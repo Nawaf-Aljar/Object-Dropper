@@ -1,4 +1,4 @@
-# H1 User Stories:  
+# User Stories:  
 
 1. As a user, I want to see a home page that contains information about the page. 
 
@@ -16,7 +16,7 @@
 
 8. As a user, I want to play again. 
 
-# H1 Pseudocode:  
+# Pseudocode:  
 
 1) Define needed variables. 
 
