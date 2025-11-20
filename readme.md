@@ -16,6 +16,10 @@
 
 8. As a user, I want to play again. 
 
+# Mockups
+
+![mockup picture](Untitled-2025-11-19-1856.png)
+
 # Pseudocode:  
 
 1) Define needed variables. 
