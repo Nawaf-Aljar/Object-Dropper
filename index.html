@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Object Dropper</title>
-    <script src="./js/app.js"></script>
+    <script defer src="./js/app.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <!-- font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,13 +17,19 @@
 </header>
 <div class="container">
     <div class="display">
-        <p id="display-message"></p>
+        <p></p>
     </div>
-    <div class="game" id="game-border">
+    <div class="game">
         <img src="./assets/background.jpg" alt="background img" width="650px" height="400px" >
+        <div id="character" class="hidden">
+            <img src="https://cdn-icons-png.flaticon.com/128/1507/1507155.png" alt="Character" style="width: 80px; height: 80px;">
+        </div>
+        <div id="fallingObject" class="hidden">
+            <img src="https://cdn-icons-png.flaticon.com/128/3139/3139589.png" alt="Falling Object" style="width: 60px; height: 60px;">
+        </div>
     </div>
-    <div class="startbutton" id="button">
-        <button>Start Game</button>
+    <div class="startbutton">
+        <button id="button" >Start Game</button>
     </div>
 </div>
 </body>

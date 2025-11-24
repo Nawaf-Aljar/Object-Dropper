@@ -14,7 +14,7 @@ h1{
     margin-bottom: 20px;
     margin-top: 15px;
 }
-#display-message{
+.display{
     border: solid black 3px;
     border-radius: 15px;
     height: 60px;
@@ -22,7 +22,7 @@ h1{
     margin: 0 auto;
     margin-bottom: 20px;
 }
-#game-border{
+.game{
     border: solid black 3px;
     border-radius: 15px;
     height: 400px;
@@ -30,7 +30,7 @@ h1{
     margin: 0 auto;
     margin-bottom: 20px;
 }
-#button{
+.startbutton{
     border: solid black 3px;
     border-radius: 15px;
     text-align: center;
@@ -46,4 +46,24 @@ button{
 }
 img{
     border-radius: 11px;
+}
+#character {
+    position: absolute;
+    bottom: 190px;
+    left: 50%;
+    width: 80px;
+    height: 20px;
+    /* background-color: #ff5722; */
+    transform: translateX(-50%);
+}
+
+#fallingObject {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    /* background-color: #4caf50; */
+    border-radius: 50%;
+}
+.hidden{
+    visibility: hidden;
 }
