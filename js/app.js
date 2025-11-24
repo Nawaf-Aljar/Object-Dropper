@@ -4,12 +4,13 @@
 
 /*---------------------------- Variables (state) ----------------------------*/
 
-let timer
+let timer = 30
+let timeInterval
 let score = 0
 let winner = false
 let gameOver = false
 
-let characterPosition = 160
+let characterPosition = 340
 let fallingSpeed = 1
 let fallingInterval
 let objectInterval
@@ -17,33 +18,41 @@ let objectInterval
 /*------------------------ Cached Element References ------------------------*/
 
 const buttonElement = document.querySelector("#button")
-const displayMessageElement = document.querySelector(".display")
+const displayScoreElement = document.querySelector("#score")
+const displayTimerElement = document.querySelector("#timer")
 const gameAreaElement = document.querySelector(".game")
 const characterElement = document.getElementById("character")
 const fallingElement = document.getElementById("fallingObject")
 
 /*-------------------------------- Functions --------------------------------*/
-function startGame() {
+
+function init() {
     characterElement.classList.remove("hidden")
     fallingElement.classList.remove("hidden")
     fallingElement.style.left = Math.random() * 370 + 'px';
     fallingElement.style.top = '0px'
-    fallingInterval = setInterval(moveObject, fallingSpeed);
-    
-}
+    fallingInterval = setInterval(objectMovement, fallingSpeed);
+    timeInterval = setInterval(() => {
+        timer--
 
-function moveObject() {
+        if (timer < 0){
+            clearInterval(timeInterval)
+        }
+    },1000)
+    displayTimerElement.textContent = timeInterval
+}
+function objectMovement() {
     let objectTop = parseInt(fallingElement.style.top);
     objectTop += fallingSpeed;
     fallingElement.style.top = objectTop + 'px';
-    if (objectTop > 570 && objectTop < 600 && 
-        parseInt(fallingElement.style.left) > characterPosition - 30 && 
+    if (objectTop > 335 && objectTop < 800 && 
+        parseInt(fallingElement.style.left) > characterPosition - 50 && 
         parseInt(fallingElement.style.left) < characterPosition + 80) {
         score++;
-        displayMessageElement.innerText = 'Score: ' + score;
+        displayScoreElement.innerText = 'Score: ' + score;
         resetObject();
     }
-    if (objectTop > 600) {
+    if (objectTop > 335) {
         resetObject();
     }
 }
@@ -59,13 +68,13 @@ function checkForWinner(){
 }
 /*----------------------------- Event Listeners -----------------------------*/
 document.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowLeft' && characterPosition > 0) {
-        characterPosition -= 20;
+    if (event.key === 'ArrowLeft' && characterPosition > 90) {
+        characterPosition -= 30;
         characterElement.style.left = characterPosition + 'px';
-    } else if (event.key === 'ArrowRight' && characterPosition < 320) {
-        characterPosition += 20;
+    } else if (event.key === 'ArrowRight' && characterPosition < 600) {
+        characterPosition += 30;
         characterElement.style.left = characterPosition + 'px';
     }
 });
-buttonElement.addEventListener("click",startGame)
+buttonElement.addEventListener("click",init)
 

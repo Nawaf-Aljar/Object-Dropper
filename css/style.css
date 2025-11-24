@@ -24,9 +24,13 @@ h1{
 }
 .game{
     border: solid black 3px;
+    /* background-color: red; */
     border-radius: 15px;
+    background-image: url(/assets/background.jpg);
     height: 400px;
     width: 650px;
+    background-position: center;
+    background-size: cover;
     margin: 0 auto;
     margin-bottom: 20px;
 }
@@ -48,21 +52,23 @@ img{
     border-radius: 11px;
 }
 #character {
-    position: absolute;
-    bottom: 190px;
+    position: relative;
+    top: 320px;
     left: 50%;
     width: 80px;
     height: 20px;
+    /* margin: auto; */
     /* background-color: #ff5722; */
     transform: translateX(-50%);
 }
 
 #fallingObject {
-    position: absolute;
+    position:relative;
     width: 30px;
     height: 30px;
     /* background-color: #4caf50; */
     border-radius: 50%;
+    /* margin: 0 auto; */
 }
 .hidden{
     visibility: hidden;
