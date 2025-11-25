@@ -1,3 +1,4 @@
+
 /*-------------------------------- Constants --------------------------------*/
 
 
@@ -8,7 +9,6 @@ let timer = 30
 let timeInterval
 let score = 0
 let winner = false
-let gameOver = false
 let characterPosition = 340
 let fallingSpeed = 1
 let fallingInterval
@@ -35,7 +35,10 @@ function init() {
     fallingElement.style.left = Math.random() * 370 + 'px';
     fallingElement.style.top = '0px'
     fallingInterval = setInterval(objectMovement, fallingSpeed);
+    displayScoreElement.innerText = 'Score: ' + score
+    displayTimerElement.textContent = "Timer: " + timer
     time()
+    GameOver()
     }
 }
 function objectMovement() {
@@ -57,16 +60,18 @@ function resetObject() {
     fallingElement.style.left = Math.random() * 370 + 'px';
 }
 function GameOver(){
-    if (timer === 0){
-        resetGame()
+    if (timer <= 0){
+        checkForWinner()
+    characterElement.classList.add("hidden")
+    fallingElement.classList.add("hidden")
     }
 }
 function checkForWinner(){
-    if( score > 15){
+    if(score >= 15){
         winner = true
         displayMessageElement.innerText = "Congratulations! You won the game!"
     }
-    else if(timer === 0 && score < 15){
+    else if(score < 15){
         displayMessageElement.innerText = "Game Over! Better luck next time!"
     }
 }
@@ -76,17 +81,25 @@ function time(){
         displayTimerElement.textContent = "Timer: " + timer
         if (timer <= 0){
             clearInterval(timeInterval)
+            clearInterval(fallingInterval)
+            checkForWinner()
         }
     },1000)
 }
 function resetGame(){
     timer = 30
+    score = 0
     clearInterval(timeInterval)
     clearInterval(fallingInterval)
     characterElement.classList.add("hidden")
     fallingElement.classList.add("hidden")
+    displayTimerElement.innerText = " "
+    displayScoreElement.innerText = " "
+    displayMessageElement.innerText = " "
 }
+
 /*----------------------------- Event Listeners -----------------------------*/
+
 document.addEventListener('keydown', (event) => {
     if (event.key === 'ArrowLeft' && characterPosition > 90) {
         characterPosition -= 30;
