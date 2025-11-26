@@ -19,7 +19,7 @@
 
 ## Getting Started:
 
-[Game Link] (https://nawaf-aljar.github.io/Object-Dropper/)
+[Game Link](https://nawaf-aljar.github.io/Object-Dropper/)
 
 ## User Stories:  
 
