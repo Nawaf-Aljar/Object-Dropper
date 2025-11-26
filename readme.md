@@ -64,3 +64,11 @@
 - CSS
 
 - JavaScript
+
+## Next Step:
+
+- Add extra levels
+
+- Add additional objects
+
+-  improve design 
