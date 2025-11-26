@@ -35,8 +35,8 @@ const negativeFallingElement = document.getElementById("negativeFallingObject")
 
 function init() {
     if(timer === 30){
-        gameLive = true
-        ButtonElement.innerText = "Reset Game"
+       // gameLive = true
+       // ButtonElement.innerText = "Reset Game"
         characterElement.classList.remove("hidden")
         fallingElement.classList.remove("hidden")
         negativeFallingElement.classList.remove("hidden")
@@ -52,6 +52,25 @@ function init() {
         GameOver()
         messageDisplay()
     } 
+}
+function countDown(){
+    let count = 3
+    gameLive = true
+    ButtonElement.innerText = "Reset Game"
+    displayMessageElement.innerText = "Game Starting in: " + count
+    const countInterval = setInterval(() => {
+        count--
+        if(count > 0){
+            displayMessageElement.innerText = "Game Starting in: " + count
+        }
+        else{
+            displayMessageElement.innerText = "Game Started"
+            clearInterval(countInterval)
+            setTimeout(()=> {
+                init()
+            }, 500)
+        }
+    }, 1000)
 }
 function objectMovement() {
     let objectTop = parseInt(fallingElement.style.top);
@@ -148,7 +167,7 @@ document.addEventListener('keydown', (event) => {
 });
 ButtonElement.addEventListener("click", () =>{
     if (gameLive === false){
-        init()
+        countDown()
     }
     else{
         resetGame()
