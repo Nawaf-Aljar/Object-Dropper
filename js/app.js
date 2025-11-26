@@ -1,7 +1,13 @@
 
 /*-------------------------------- Constants --------------------------------*/
 
-
+const messages = [
+    "You got this! Stay focused and catch them all!",
+    "Speed and skill — show what you can do!",
+    "Believe in your reflexes! Go for that high score!",
+    "Stay sharp! Every point counts!",
+    "You're unstoppable — keep moving!"
+]
 
 /*---------------------------- Variables (state) ----------------------------*/
 
@@ -46,6 +52,7 @@ function init() {
     time()
     GameOver()
     }
+    messageDisplay
 }
 function objectMovement() {
     let objectTop = parseInt(fallingElement.style.top);
@@ -125,7 +132,10 @@ function resetGame(){
     displayScoreElement.innerText = " "
     displayMessageElement.innerText = " "
 }
-
+function messageDisplay(){
+    const randomMessage = Math.floor(Math.random()* messages.length)
+    displayMessageElement.innerText = messages[randomMessage]
+}
 /*----------------------------- Event Listeners -----------------------------*/
 
 document.addEventListener('keydown', (event) => {
