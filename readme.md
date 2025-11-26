@@ -15,7 +15,7 @@
 
 ## Game Screenshots:
 
-![Game Home Page](./assets/Object%20Dropper%20-%20Main%20Page.png)
+![Game Home Page](./assets/objectDropperMainPage.png)
 
 ## Getting Started:
 
@@ -39,7 +39,7 @@
 
 ## Mockups
 
-![mockup picture](Untitled-2025-11-19-1856.png)
+![mockup picture](./assets/Mockups.png)
 
 ## Pseudocode:  
 
