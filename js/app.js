@@ -35,8 +35,6 @@ const negativeFallingElement = document.getElementById("negativeFallingObject")
 
 function init() {
     if(timer === 30){
-       // gameLive = true
-       // ButtonElement.innerText = "Reset Game"
         characterElement.classList.remove("hidden")
         fallingElement.classList.remove("hidden")
         negativeFallingElement.classList.remove("hidden")

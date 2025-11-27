@@ -13,7 +13,7 @@
 
 - Dynamic Start/Reset Button.
 
-- Countdown till game start
+- Countdown till game start.
 
 ## Game Screenshots:
 
